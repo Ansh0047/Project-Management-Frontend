@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button"
-import Home from "./pages/Home/Home"
+import React from 'react'
+import Home from './pages/Home/Home'
 
-
-function App() {
+const App = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-svh">
+    <div>
       <Home />
     </div>
   )
