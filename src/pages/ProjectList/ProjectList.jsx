@@ -1,27 +1,33 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { MixerHorizontalIcon } from '@radix-ui/react-icons';
+import { MagnifyingGlassIcon, MixerHorizontalIcon } from '@radix-ui/react-icons';
 import { Label } from '@/components/ui/label';
 import { RadioGroup } from '@/components/ui/radio-group';
 import { RadioGroupItem } from '@/components/ui/radio-group';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import React from 'react'
+import React, { useState } from 'react'
+import { Input } from '@/components/ui/input';
+import ProjectCard from '../Project/ProjectCard';
 
 const tags = [
     "all", "react", "nextjs", "spring boot", "mysql", "mongodb", "python", "django", "flask", "angular",
 ]
 
 const ProjectList = () => {
+    const [keyword, setKeyword] = useState("");
+
     const handleFilterChange = (section, value) => {
         console.log("value", value, section);
     };
 
+    const handleSearchChange = (e) => {
+        setKeyword(e.target.value);
+    };
+
     return (
         <>
-            <div className='relative px-5 lg:px-0 lg:flex gap-5 justify-center py-5'>
+            <div className='relative px-5 lg:px-0 lg:flex gap-5 justify-center py-5 '>
                 <section className='filterSection'>
-                    Filter Section
-
                     <Card className="p-5 sticky top-10">
 
                         <div className='flex justify-between lg:w-[20rem]'>
@@ -80,7 +86,25 @@ const ProjectList = () => {
                 </section>
 
                 <section className='projectListSection w-full lg:w-[48rem]'>
-                    Project List Section
+                    <div className='flex gap-2 items-center pb-5 justify-between'>
+                        <div className='relative p-0 w-full'>
+                            <Input
+                                onChange={handleSearchChange}
+                                placeholder="search project..."
+                                className="40% px-9 border-gray-800" />
+                            <MagnifyingGlassIcon className='absolute top-3 left-4' />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className='space-y-5 min-h-[74vh]'>
+                            {
+                                keyword ? [1, 1, 1].map((item) => <ProjectCard key={item} />) :
+                                    [1, 1, 1, 1, 1].map((item) => <ProjectCard key={item} />)
+                            }
+
+                        </div>
+                    </div>
                 </section>
             </div>
         </>
