@@ -11,7 +11,7 @@ import { DotFilledIcon, DotsVerticalIcon } from "@radix-ui/react-icons";
 
 const ProjectCard = () => {
   return (
-    <Card classname="p-5 w-full lg:max-w-3xl">
+    <Card className="p-5 w-full lg:max-w-3xl">
       project card
       <div className="space-y-5">
         <div className="space-y-2">
@@ -44,7 +44,7 @@ const ProjectCard = () => {
         </div>
         
         <div className="flex flex-wrap gap-2 items-center">
-            {[1,1,1,1].map((item) => <Badge key={item} variant="outline">{"frontend"}</Badge>)}
+            {[1,2,3,4].map((item) => <Badge key={item} variant="outline">{"frontend"}</Badge>)}
         </div>
       </div>
     </Card>

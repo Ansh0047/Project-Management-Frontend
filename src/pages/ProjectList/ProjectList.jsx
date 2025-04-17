@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 import { Input } from '@/components/ui/input';
 import ProjectCard from '../Project/ProjectCard';
 
-const tags = [
+export const tags = [
     "all", "react", "nextjs", "spring boot", "mysql", "mongodb", "python", "django", "flask", "angular",
 ]
 
@@ -99,8 +99,8 @@ const ProjectList = () => {
                     <div>
                         <div className='space-y-5 min-h-[74vh]'>
                             {
-                                keyword ? [1, 1, 1].map((item) => <ProjectCard key={item} />) :
-                                    [1, 1, 1, 1, 1].map((item) => <ProjectCard key={item} />)
+                                keyword ? [1,2,3].map((item) => <ProjectCard key={item} />) :
+                                    [1,2,3,4,5].map((item) => <ProjectCard key={item} />)
                             }
 
                         </div>
