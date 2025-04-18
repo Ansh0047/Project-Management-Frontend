@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTrigger } from '@/components/ui/dialog'
 import { PlusIcon } from 'lucide-react'
 import InviteUserForm from './InviteUserForm'
+import IssueDetail from './IssueList'
+import ChatBox from './ChatBox'
+import IssueList from './IssueList'
 
 const ProjectDetails = () => {
     const handleProjectInviatation = () => {
@@ -32,32 +35,32 @@ const ProjectDetails = () => {
                                 <p className='w-36'>Membes : </p>
                                 <div className='flex items-center gap-2'>
 
-                                    {[1,2,3,4].map((item) => <Avatar className="cursor-pointer" key={item}>
+                                    {[1, 2, 3, 4].map((item) => <Avatar className="cursor-pointer" key={item}>
                                         <AvatarFallback className="bg-slate-800">
                                             A
                                         </AvatarFallback>
-                                        </Avatar>)}
-                                    
+                                    </Avatar>)}
+
                                 </div>
-                                
+
                                 <Dialog>
                                     <DialogTrigger>
                                         <DialogClose>
                                             <Button size="sm" variant="outline" onClick={handleProjectInviatation} className="rounded px-2 ml-3 bg-inherit text-gray-500 hover:bg-slate-800">
-                                                
+
                                                 <span className='px-1 py-2'>invite</span>
                                                 <PlusIcon className='w-3 h-3' />
-                                        
+
                                             </Button>
                                         </DialogClose>
-                            
+
                                     </DialogTrigger>
                                     <DialogContent>
                                         <DialogHeader>Invite User</DialogHeader>
                                         <InviteUserForm />
                                     </DialogContent>
                                 </Dialog>
-                                
+
                             </div>
 
                             <div className='flex'>
@@ -69,9 +72,19 @@ const ProjectDetails = () => {
                                 <p className='w-36'>Project Lead : </p>
                                 <Badge className="bg-white text-black hover:text-white">Ansh</Badge>
                             </div>
+
                         </div>
+                        <section>
+                            <p className='space-y-5 pb-10 text-lg'>Taks</p>
+                            <div className='lg:flex md:flex gap-3 justify-between py-5'>
+                                <IssueList status="pending" title="Todo List" />
+                                <IssueList status="in_progress" title="In Progress" />
+                                <IssueList status="done" title="Done" />
+                            </div>
+                        </section>
                     </div>
                 </ScrollArea>
+                <ChatBox />
             </div>
         </div>
     )
