@@ -75,7 +75,7 @@ const ProjectDetails = () => {
 
                         </div>
                         <section>
-                            <p className='space-y-5 pb-10 text-lg'>Taks</p>
+                            <h1 className='space-y-5 pb-2 text-lg border-b border-slate-800'>Tasks</h1>
                             <div className='lg:flex md:flex gap-3 justify-between py-5'>
                                 <IssueList status="pending" title="Todo List" />
                                 <IssueList status="in_progress" title="In Progress" />
@@ -84,7 +84,9 @@ const ProjectDetails = () => {
                         </section>
                     </div>
                 </ScrollArea>
-                <ChatBox />
+                <div className='lg:w-[30%] rounded-md sticky right-5 top-0'>
+                    <ChatBox />
+                </div>
             </div>
         </div>
     )
